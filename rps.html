@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Demo</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        let computerScore = 0;
+        let humanScore = 0;
+
+        getComputerChoice();
+        getHumanChoice();
+        playRound(getComputerChoice(), getHumanChoice());
+
+        function playRound(humanSelection, computerSelection) {
+            switch(humanSelection){
+                case "rock": 
+                    switch(computerSelection) {
+                        case "rock":
+                            console.log("It's a tie!");
+                            break;
+                        case "scissors":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
+                        case "paper":
+                            computerScore++;
+                            console.log("You lose!");
+                            break;
+                    }
+                case "scissors":
+                    switch(computerSelection) {
+                        case "rock":
+                            computerScore++;
+                            console.log("You lose!");
+                            break;
+                        case "scissors":
+                            console.log("Tie!");
+                            break;
+                        case "paper":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
+                    }
+                case "paper":
+                    switch(computerSelection) {
+                        case "rock":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
+                        case "scissors":
+                            computerScore++;
+                            console.log("You lose!");
+                            break;
+                        case "paper":
+                            console.log("Tie!");
+                            break;
+                    }
+            }
+        }
+
+        function getHumanChoice() {
+            const humanChoice = prompt("Choose rock, paper, scissors"); //trust for now
+            console.log(humanChoice);
+            return humanChoice;
+        }
+
+        function getComputerChoice() {
+            const randomNumber = getRandomInt(0, 3);
+            const choices = ['rock', 'paper', 'scissors'];
+            console.log(`choices[randomNumber] is ${choices[randomNumber]}`);
+            return choices[randomNumber];
+        }
+
+        function getRandomInt(min, max) {
+            const minCeiled = Math.ceil(min);
+            const maxFloored = Math.floor(max);
+            return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+        }
+
+    </script>
+</body>
+
+</html>
