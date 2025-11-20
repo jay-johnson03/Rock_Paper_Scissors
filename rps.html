@@ -9,7 +9,7 @@
 
 <body>
 
-
+    <!-- -->
     <script>
 
         let computerScore = 0;
@@ -68,13 +68,13 @@
         }
 
         function getHumanChoice() {
-            const humanChoice = prompt("Choose rock, paper, scissors"); //trust for now
+            const humanChoice = prompt("Choose rock, paper, scissors, lizard, spock"); //trust for now
             console.log(humanChoice);
             return humanChoice;
         }
 
         function getComputerChoice() {
-            const randomNumber = getRandomInt(0, 3);
+            const randomNumber = getRandomInt(0, 5);
             const choices = ['rock', 'paper', 'scissors'];
             console.log(`choices[randomNumber] is ${choices[randomNumber]}`);
             return choices[randomNumber];
