@@ -8,17 +8,18 @@
 </head>
 
 <body>
-
-    <!-- -->
     <script>
 
         let computerScore = 0;
         let humanScore = 0;
 
-        getComputerChoice();
-        getHumanChoice();
-        // fix calling the round cus it doesn't run the console logs
-        playRound(getComputerChoice(), getHumanChoice());
+        // Play a single round on page load
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log(`You chose: ${humanSelection}`);
+        console.log(`Computer chose: ${computerSelection}`);
+        playRound(humanSelection, computerSelection);
+        console.log(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
 
         function playRound(humanSelection, computerSelection) {
             switch(humanSelection){
@@ -44,6 +45,7 @@
                             console.log("You win!");
                             break;
                     }
+                    break;
                 case "scissors":
                     switch(computerSelection) {
                         case "rock":
@@ -66,6 +68,7 @@
                             console.log("You lose!");
                             break;
                     }
+                    break;
                 case "paper":
                     switch(computerSelection) {
                         case "rock":
@@ -88,6 +91,7 @@
                             console.log("You lose!");
                             break;
                     }
+                    break;
                 case "lizard":
                     switch(computerSelection) {
                         case "rock":
@@ -110,6 +114,7 @@
                             console.log("Tie!");
                             break;
                     }
+                    break;
                 case "spock":
                     switch(computerSelection) {
                         case "rock":
@@ -132,19 +137,31 @@
                             console.log("You lose!");
                             break;
                     }
+                    break;
+                default:
+                    console.log("Invalid choice. Please reload and try again.");
             }
         }
 
         function getHumanChoice() {
-            const humanChoice = prompt("Choose rock, paper, scissors, lizard, spock"); //trust for now
-            console.log(humanChoice);
-            return humanChoice;
+            const valid = ["rock", "paper", "scissors", "lizard", "spock"];
+            while (true) {
+                const input = prompt("Choose rock, paper, scissors, lizard, spock");
+                if (input === null) {
+                    return "rock"; // default if cancelled
+                }
+                const choice = input.trim().toLowerCase();
+                if (valid.includes(choice)) {
+                    return choice;
+                }
+                alert("Invalid choice. Please enter rock, paper, scissors, lizard, or spock.");
+            }
         }
 
         function getComputerChoice() {
             const randomNumber = getRandomInt(0, 5);
-            const choices = ['rock', 'paper', 'scissors'];
-            console.log(`choices[randomNumber] is ${choices[randomNumber]}`);
+            const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+            console.log(`Computer picked: ${choices[randomNumber]}`);
             return choices[randomNumber];
         }
 
