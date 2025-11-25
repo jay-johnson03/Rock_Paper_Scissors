@@ -35,6 +35,14 @@
                             computerScore++;
                             console.log("You lose!");
                             break;
+                        case "spock":
+                            computerScore++;
+                            console.log("You lose!");
+                            break;
+                        case "lizard":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
                     }
                 case "scissors":
                     switch(computerSelection) {
@@ -49,6 +57,14 @@
                             humanScore++;
                             console.log("You win!");
                             break;
+                        case "lizard":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
+                        case "spock":
+                            computerScore++;
+                            console.log("You lose!");
+                            break;
                     }
                 case "paper":
                     switch(computerSelection) {
@@ -62,6 +78,58 @@
                             break;
                         case "paper":
                             console.log("Tie!");
+                            break;
+                        case "spock":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
+                        case "lizard":
+                            computerScore++;
+                            console.log("You lose!");
+                            break;
+                    }
+                case "lizard":
+                    switch(computerSelection) {
+                        case "rock":
+                            computerScore++;
+                            console.log("You lose!");
+                            break;
+                        case "scissors":
+                            computerScore++;
+                            console.log("You lose!");
+                            break;
+                        case "paper":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
+                        case "spock":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
+                        case "lizard":
+                            console.log("Tie!");
+                            break;
+                    }
+                case "spock":
+                    switch(computerSelection) {
+                        case "rock":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
+                        case "scissors":
+                            humanScore++;
+                            console.log("You win!");
+                            break;
+                        case "paper":
+                            computerScore++;
+                            console.log("You lose!");
+                            break;
+                        case "spock":
+                            console.log("Tie!");
+                            break;
+                        case "lizard":
+                            computerScore++;
+                            console.log("You lose!");
                             break;
                     }
             }
